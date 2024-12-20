@@ -13,7 +13,7 @@ interface TeacherInterface {
 }
 
 // Implement the Director class
-class Director implements DirectorInterface {
+class Direcntor implements DirectorInterface {
   workFromHome(): string {
     return "Working from home";
   }
@@ -121,3 +121,22 @@ function executeWork(employee: Director | Teacher): void {
 // Test the implementation
 executeWork(createEmployee(200)); // Getting to work
 executeWork(createEmployee(1000)); // Getting to director tasks
+
+
+// Define the String literal type
+type Subjects = "Math" | "History";
+
+// Define the teachClass function
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  } else if (todayClass === "History") {
+    return "Teaching History";
+  }
+  return "Invalid subject"; // This line will never be reached due to type constraints
+}
+
+// Test the implementation
+console.log(teachClass("Math"));    // Teaching Math
+console.log(teachClass("History")); // Teaching History
+
